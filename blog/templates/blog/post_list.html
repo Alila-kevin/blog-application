@@ -6,6 +6,7 @@
 </head>
 <body>
     <h1>Blog Posts</h1>
+    <a href="{% url 'add_post' %}">Add a blog</a>
     <ul>
         {% for post in posts %}
             <li>
