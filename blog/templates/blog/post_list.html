@@ -4,16 +4,18 @@
     <meta charset="UTF-8">
     <title>Blog Posts</title>
 </head>
-<body>
-    <h1>Blog Posts</h1>
-    <a href="{% url 'add_post' %}">Add a blog</a>
-    <ul>
+<body style="font-family: Arial, sans-serif; margin: 20px; background-color: #f4f4f4; length:25%;">
+
+    <h1 style="color: #333; text-align: center;">Blog Posts</h1>
+    <a href="{% url 'add_post' %}" style="display: block; margin: 20px 0; text-decoration: none; color: white; background-color: #007bff; padding: 10px 15px; border-radius: 5px; text-align: center;">Add a blog</a>
+    
+    <ul style="list-style-type: none; padding: 0;">
         {% for post in posts %}
-            <li>
-                <a href="{% url 'post_detail' post.pk %}">{{ post.title }}</a> - {{ post.created_at|date:"Y-m-d H:i" }}
+            <li style="padding: 10px; border-bottom: 1px solid #ccc;">
+                <a href="{% url 'post_detail' post.pk %}" style="text-decoration: none; color: #007bff;">{{ post.title }}</a> - <span style="color: #666;">{{ post.created_at|date:"Y-m-d H:i" }}</span>
             </li>
         {% empty %}
-            <li>No posts available.</li>
+            <li style="padding: 10px; color: #666;">No posts available.</li>
         {% endfor %}
     </ul>
     
